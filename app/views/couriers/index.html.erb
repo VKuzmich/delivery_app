@@ -1,0 +1,9 @@
+<h1>couries</h1>
+
+<% @couriers.each do |courier| %>
+  <div class="post_wrapper">
+    <h2 class="title"><%= link_to courier.name, courier %></h2>
+    <h2 class="email"><%= link_to courier.email, courier %></h2>
+    <p class="date"><%= courier.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+<% end %>

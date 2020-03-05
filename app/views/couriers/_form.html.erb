@@ -1,0 +1,10 @@
+<h2> new courier</h2>
+
+<%= form_for @courier, url: couriers_path, method: :post do |f| %>
+  <%= f.text_field :name, label: 'Name' %><br />
+  <%= f.text_field :email, label: 'Email' %><br />
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Back', couriers_path %>
