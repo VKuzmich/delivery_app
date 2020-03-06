@@ -3,5 +3,9 @@
     <td><%= courier.name %></td>
     <td><%= courier.email %></td>
     <td><%= courier.created_at.strftime("%B %d, %Y") %></td>
+    <td><%= link_to 'Show', courier_path(courier.id) %></td>
+    <td><%= link_to 'Edit', edit_courier_path(courier.id) %></td>
+    <td><%= link_to 'Delete', courier_path(courier.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
   </tr>
 <% end %>

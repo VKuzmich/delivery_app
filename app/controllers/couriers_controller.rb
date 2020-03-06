@@ -16,9 +16,9 @@ class CouriersController < ApplicationController
     @courier = Courier.new(courier_params)
 
     if @courier.save
-      redirect_to couriers_path
+      redirect_to @courier
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -27,7 +27,7 @@ class CouriersController < ApplicationController
 
   def update
 
-    if @courier.update(params[:courier].permit(:name, :email))
+    if @courier.update(courier_params)
       redirect_to @courier
     else
       render 'edit'

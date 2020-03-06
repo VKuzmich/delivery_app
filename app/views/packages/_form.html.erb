@@ -1,0 +1,35 @@
+
+<%= form_with(model: [ @courier, @courier.packages.build ], local: true) do |f| %>
+
+  <table class="table">
+    <thead class="thead-dark">
+
+      <tr>
+        <th scope="col">Tracking Number</th>
+        <th scope="col">Delivery status</th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><%= f.text_field :tracking_number, placeholder: "write tracking number" %></th>
+        <th scope="row"> <%= f.check_box :delivery_status %></th>
+        <th scope="row"><%= f.submit "Create", class: "btn btn-primary" %></th>
+
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<%#= form_with(model: [ @courier, @courier.packages.build ], local: true) do |f| %>
+
+<!--  <label>Tracking Number</label>-->
+  <%#= f.text_field :tracking_number, placeholder: "write tracking number" %>
+
+<!--  <label>Delivery status</label>-->
+<!--  <%#= f.check_box :delivery_status %> Delivery Status-->
+
+  <%#= f.submit "Create", class: "btn btn-primary" %>
+<!--  <br>-->
+<%# end %>

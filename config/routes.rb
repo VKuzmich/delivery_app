@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'couriers#index'
 
-  resources :couriers
+  resources :couriers do
+    resources :packages
+  end
 
 end
