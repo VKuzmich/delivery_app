@@ -1,0 +1,7 @@
+<% @couriers.each do |courier| %>
+  <tr>
+    <td><%= courier.name %></td>
+    <td><%= courier.email %></td>
+    <td><%= courier.created_at.strftime("%B %d, %Y") %></td>
+  </tr>
+<% end %>
