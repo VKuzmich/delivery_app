@@ -1,4 +1,5 @@
 <h2><%= action_name == 'new' ? 'New' : 'Edit' %>  courier</h2>
+<br>
 <div class="container">
   <%= form_for @courier do |f| %>
     <div class="col-md-3">
@@ -14,6 +15,6 @@
     </div>
   <% end %>
     <hr>
-    <div class="col-md-3"><%= link_to 'Back', couriers_path %></div>
+    <div class="col-md-3"><%= link_to 'Back', couriers_path, class: "btn btn-primary" %></div>
 </div>
 
