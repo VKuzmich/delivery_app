@@ -1,8 +1,10 @@
+<tr>
 
-<%= package.tracking_number %>
-<%= package.delivery_status %>
-<%= time_ago_in_words(package.created_at) %> Ago
+  <td><%= package.tracking_number %></td>
+  <td><%= package.delivery_status %></td>
+  <td><%= time_ago_in_words(package.created_at) %> Ago</td>
 
-<%= link_to 'Delete', [package.courier, package], method: :delete, data: { confirm: 'Are you sure?' } %>
+  <td><%= link_to 'Delete', [package.courier, package], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
 
 

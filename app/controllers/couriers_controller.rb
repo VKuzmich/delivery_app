@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CouriersController < ApplicationController
   before_action :set_courier, only: %i[show edit update destroy]
 
@@ -5,8 +7,7 @@ class CouriersController < ApplicationController
     @couriers = Courier.all.order('created_at DESC')
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @courier = Courier.new
@@ -22,11 +23,9 @@ class CouriersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-
     if @courier.update(courier_params)
       redirect_to @courier
     else

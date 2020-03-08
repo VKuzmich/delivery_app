@@ -1,5 +1,6 @@
-class PackagesController < ApplicationController
+# frozen_string_literal: true
 
+class PackagesController < ApplicationController
   def create
     @courier = Courier.find(params[:courier_id])
     @package = @courier.packages.create(package_params)

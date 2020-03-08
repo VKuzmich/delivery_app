@@ -1,4 +1,4 @@
-<h2> new courier</h2>
+<h2><%= action_name == 'new' ? 'New' : 'Edit' %>  courier</h2>
 <div class="container">
   <%= form_for @courier do |f| %>
     <div class="col-md-3">
@@ -13,7 +13,7 @@
       <%= f.submit %>
     </div>
   <% end %>
-    <br>
+    <hr>
     <div class="col-md-3"><%= link_to 'Back', couriers_path %></div>
 </div>
 
