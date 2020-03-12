@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root to: 'couriers#index'
 
-  resources :couriers do
+  resources :couriers, only: [:show, :create, :new, :index, :destroy] do
     resources :packages
   end
 end

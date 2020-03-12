@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap', '~> 4.4.1'
 
+gem 'faker'
 gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -43,6 +44,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-controller-testing'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'factory_bot'
   gem 'rspec-rails'
   gem 'rspec', '~> 3.9'
   gem 'rspec-core', '~> 3.9'
