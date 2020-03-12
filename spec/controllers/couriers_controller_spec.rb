@@ -37,4 +37,17 @@ RSpec.describe CouriersController, type: :controller do
         end
       end
   end
+
+  describe "PATCH #update" do
+    let(:attr) { { name: 'Kanban', email: 'ex@ex.com' } }
+
+      before(:each) do
+        put :update, params: {id: courier.id, courier: attr}
+        courier.reload
+      end
+
+      it { expect(response).to redirect_to(courier) }
+      it { expect(courier.name).to eql attr[:name] }
+      it { expect(courier.email).to eql attr[:email] }
+    end
 end
