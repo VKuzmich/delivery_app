@@ -19,7 +19,6 @@ RSpec.describe CouriersController, type: :controller do
     end
   end
 
-
   describe 'DELETE #destroy' do
     let!(:courier) { create :courier }
     subject { get :index }
@@ -42,12 +41,57 @@ RSpec.describe CouriersController, type: :controller do
     let(:attr) { { name: 'Kanban', email: 'ex@ex.com' } }
 
       before(:each) do
-        put :update, params: {id: courier.id, courier: attr}
+        patch :update, params: {id: courier.id, courier: attr}
         courier.reload
       end
+      context "valid attributes" do
+        it { expect(response).to redirect_to(courier) }
+        it { expect(courier.name).to eq('Kanban')}
+        it { expect(courier.email).to eql attr[:email] }
+      end
 
-      it { expect(response).to redirect_to(courier) }
-      it { expect(courier.name).to eql attr[:name] }
-      it { expect(courier.email).to eql attr[:email] }
+      context "with invalid attributes" do
+        it "does not change the courier's attributes" do
+          patch :update, params: {id: courier.id, courier: { name: 'Kanban', email: nil }}
+          courier.reload
+          expect(courier.name).to_not eq('Larry')
+          expect(courier.email).to eq('ex@ex.com')
+
+        end
+
+        it "re-renders the edit template" do
+          patch :update, params: {id: courier.id, courier: { name: 'Kanban', email: nil }}
+          courier.reload
+          expect(response).to render_template :edit
+        end
+      end
+
+  end
+
+
+  describe 'GET #new' do
+    it "assigns a new Courier to @courier" do
+      get :new
+      expect(assigns(:courier)).to be_a_new(Courier)
+    end
+
+    it "renders the :new template" do
+      get :new
+      expect(response).to render_template :new
+    end
+  end
+
+  describe 'GET #edit' do
+    let!(:courier) { create :courier }
+    it "assigns the requested courier to @courier" do
+
+      get :edit, params: {id: courier.id, courier: courier}
+      expect(assigns(:courier)).to eq courier
+    end
+
+    it "renders the :edit template" do
+      get :edit, params: {id: courier.id, courier: courier}
+      expect(response).to render_template :edit
+      end
     end
 end
