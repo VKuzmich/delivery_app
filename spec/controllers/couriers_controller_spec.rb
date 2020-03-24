@@ -65,9 +65,7 @@ RSpec.describe CouriersController, type: :controller do
           expect(response).to render_template :edit
         end
       end
-
   end
-
 
   describe 'GET #new' do
     it "assigns a new Courier to @courier" do
